@@ -1,0 +1,13 @@
+services:
+  web:
+    build: app
+    volumes:
+      - .:/code
+
+  nginx:
+    build: nginx
+    container_name: nginx
+    ports:
+      - 1234:1234
+    depends_on:
+      - web
